@@ -14,12 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(1220, 650)
+
         MainWindow.setStyleSheet("background-color: rgb(251, 237, 255);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.titleLabel = QtWidgets.QLabel(self.centralwidget)
-        self.titleLabel.setGeometry(QtCore.QRect(210, 20, 550, 40))
+        self.titleLabel.setGeometry(QtCore.QRect(420, 20, 550, 40))
 
         font = QtGui.QFont()
         font.setFamily("Bahnschrift SemiBold")
@@ -112,6 +113,35 @@ class Ui_MainWindow(object):
 "border-radius: 10px;")
         self.input_image_label.setText("")
         self.input_image_label.setObjectName("input_image_label")
+
+        self.groupBox_processed = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox_processed.setGeometry(QtCore.QRect(700, 90, 481, 411))
+  # Bên phải ảnh đầu vào
+        self.groupBox_processed.setStyleSheet("background-color: rgb(74, 98, 138);\n"
+                                              "border-radius: 10px;")
+        self.groupBox_processed.setTitle("")
+        self.groupBox_processed.setObjectName("groupBox_processed")
+
+        # Khung hiển thị ảnh đã xử lý
+        self.processed_image_label = QtWidgets.QLabel(self.groupBox_processed)
+
+        self.processed_image_label = QtWidgets.QLabel(self.groupBox_processed)
+        self.processed_image_label.setGeometry(QtCore.QRect(50, 30, 391, 331)) # GIỐNG ẢNH ĐẦU VÀO
+        self.processed_image_label.setStyleSheet("background-color: white; border-radius: 10px;")
+        self.processed_image_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.processed_image_label.setObjectName("processed_image_label")
+
+        # self.processed_image_label.setText("Ảnh đã xử lý")
+
+        self.label_processed = QtWidgets.QLabel(self.groupBox_processed)
+        self.label_processed.setGeometry(QtCore.QRect(145, 365, 220, 30))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_processed.setFont(font)
+        self.label_processed.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_processed.setText("Ảnh đã xử lý")
+        self.label_processed.setAlignment(QtCore.Qt.AlignCenter)
+
         self.result_label = QtWidgets.QLabel(self.centralwidget)
         self.result_label.setGeometry(QtCore.QRect(360, 520, 371, 31))
         self.result_label.setStyleSheet("border: 2px solid #333;\n"
