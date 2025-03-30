@@ -82,11 +82,5 @@ pip install -r requirements.txt
 
 🩺 This project is intended for research and educational purposes only. It is not a certified medical application.
 
----
 
-Feel free to raise issues or contribute to improving this project!
-
----
-
-> 🩺 *This project is intended for research and educational purposes only. It is not a certified medical application.*
 
