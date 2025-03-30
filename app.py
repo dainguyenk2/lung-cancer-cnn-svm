@@ -9,6 +9,8 @@ import pandas as pd
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox, QTableWidgetItem
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import Qt
+from PyQt5.uic.properties import QtCore
+
 from cancer import Ui_MainWindow
 from trieuchung import Ui_MainWindow as TrieuChungUI
 
@@ -219,6 +221,16 @@ class MainApp(QMainWindow):
             prediction = model_image.predict(image)
             label = 1 if prediction[0][0] > 0.5 else 0
 
+            # Hiển thị ảnh đã xử lý
+            processed_image = (image[0] * 255).astype(np.uint8)  # image[0] vì shape là (1,150,150,1)
+            processed_image = cv2.cvtColor(processed_image, cv2.COLOR_GRAY2RGB)
+            height, width, channel = processed_image.shape
+            bytes_per_line = 3 * width
+            q_image = QImage(processed_image.data, width, height, bytes_per_line, QImage.Format_RGB888)
+            pixmap = QPixmap.fromImage(q_image)
+            self.ui.processed_image_label.setPixmap(pixmap)
+
+            # self.ui.processed_image_label.setPixmap(pixmap.scaled(331, 331, Qt.KeepAspectRatio))
             #Hiển thị kết quả
             result = "Có dấu hiệu ung thư phổi" if label == 1 else "Bình thường"
             self.ui.result_label.setText(result)
@@ -245,8 +257,8 @@ class MainApp(QMainWindow):
         
         self.ui.input_image_label.clear()
         self.ui.result_label.clear()
+        self.ui.processed_image_label.clear()
         self.image_path = ""
-
 
 
     def open_symptom_window(self):
