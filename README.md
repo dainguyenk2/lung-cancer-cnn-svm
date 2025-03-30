@@ -45,34 +45,7 @@ git clone https://github.com/dainguyenk2/lung-cancer-cnn-svm.git
 cd lung-cancer-cnn-svm
 ```
 
-- `git clone <repository-url>`: This command copies the entire repository from GitHub to your local machine.
-- `cd lung-cancer-cnn-svm`: After cloning, change your directory to the project folder.
-
-## 2. Install Dependencies
-To install the necessary Python libraries, you need to use a virtual environment and install the dependencies from `requirements.txt`.
-
-### a. Create a Virtual Environment
-
-To create a virtual environment, use the following command:
-
-- On **Windows**:
-```bash
-python -m venv venv
-```
-- On **macOS/Linux**:
-```bash
-python3 -m venv venv
-```
-
-- `python -m venv venv`: This creates a virtual environment called `venv` in the current directory.
-
-### b. Activate the Virtual Environment
-
-You need to activate the environment before installing dependencies. To activate the environment:
-
-- On **Windows**:
-```bash
-.env\Scripts\activate
+- `git clone <repository-url>`: This command copies the entire repository from GitHub to your local machivenv\Scripts\activate
 ```
 - On **macOS/Linux**:
 ```bash
